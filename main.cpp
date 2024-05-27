@@ -110,111 +110,36 @@ int main(){
             break;
         // Exemplo
         case 4:
+            // Cria e inicia árvore Exemplo
             Arvore Exemplo;
             IniciaArvore(Exemplo);
 
-            InsereAVLRec(Exemplo, 6);
-            InsereAVLRec(Exemplo, 3);
-            InsereAVLRec(Exemplo, 2);
-            InsereAVLRec(Exemplo, 4);
-
+            // Inserção de elementos na árvore Exemplo
+            InsereAVLRec(Exemplo, 15);
+            InsereAVLRec(Exemplo, 27);
+            InsereAVLRec(Exemplo, 49); // Rotação à Esquerda
             InsereAVLRec(Exemplo, 10);
-            InsereAVLRec(Exemplo, 8);
-            InsereAVLRec(Exemplo, 25);
+            InsereAVLRec(Exemplo, 8); // Rotação à Direita
+            InsereAVLRec(Exemplo, 67);
+            InsereAVLRec(Exemplo, 59); // Rotação Direita-Esquerda
+            InsereAVLRec(Exemplo, 9);
+            InsereAVLRec(Exemplo, 13);
+            InsereAVLRec(Exemplo, 20);
+            InsereAVLRec(Exemplo, 14); // Rotação Esquerda-Direita
 
-            if (!ArvoreVazia(Exemplo)){
-                printf("Em ordem: ");
-                Ordem(Exemplo);
-                printf("\n");
-                printf("Pre-Ordem: ");
-                PreOrdem(Exemplo);
-                printf("\n");
-                printf("Pos-Ordem: ");
-                PosOrdem(Exemplo);
-                printf("\n");
-            }
-            else
-                printf("\nArvore Vazia\n");
-
-            if(!ArvoreVazia(Exemplo)){
-                if(BuscaNo(Exemplo, 15)){
-                    RemoveAVLRec(Exemplo, 15);
-                    printf("\nElemento removido! (15)\n");
-                    printf("\n");
-                    printf("Em ordem: ");
-                    Ordem(Exemplo);
-                    printf("\n");
-                    printf("Pre-Ordem: ");
-                    PreOrdem(Exemplo);
-                    printf("\n");
-                    printf("Pos-Ordem: ");
-                    PosOrdem(Exemplo);
-                    printf("\n");
-                }
-                else printf("\nElemento nao encontrado!(15)\n");
-            }
-            else printf("\nArvore Vazia\n");
-
-            if(!ArvoreVazia(Exemplo)){
-                if(BuscaNo(Exemplo, 25)){
-                    RemoveAVLRec(Exemplo, 25);
-                    printf("\nElemento removido! (25)\n");
-                    printf("\n");
-                    printf("Em ordem: ");
-                    Ordem(Exemplo);
-                    printf("\n");
-                    printf("Pre-Ordem: ");
-                    PreOrdem(Exemplo);
-                    printf("\n");
-                    printf("Pos-Ordem: ");
-                    PosOrdem(Exemplo);
-                    printf("\n");
-                }
-                else printf("\nElemento nao encontrado!(25)\n");
-            }
-            else printf("\nArvore Vazia\n");
-
-            if(!ArvoreVazia(Exemplo)){
-                if(BuscaNo(Exemplo, 10)){
-                    RemoveAVLRec(Exemplo, 10);
-                    printf("\n");
-                    printf("\nElemento removido!(10) \n");
-                    printf("\n");
-                    printf("Em ordem: ");
-                    Ordem(Exemplo);
-                    printf("\n");
-                    printf("Pre-Ordem: ");
-                    PreOrdem(Exemplo);
-                    printf("\n");
-                    printf("Pos-Ordem: ");
-                    PosOrdem(Exemplo);
-                    printf("\n");
-                }
-                else printf("\nElemento nao encontrado!(10)\n");
-            }
-            else
-                printf("\nArvore Vazia\n");
-
-            if(!ArvoreVazia(Exemplo)){
-                if(BuscaNo(Exemplo, 3)){
-                    RemoveAVLRec(Exemplo, 3);
-                    printf("\nElemento removido!(3)\n");
-                    printf("\n");
-                    printf("Em ordem: ");
-                    Ordem(Exemplo);
-                    printf("\n");
-                    printf("Pre-Ordem: ");
-                    PreOrdem(Exemplo);
-                    printf("\n");
-                    printf("Pos-Ordem: ");
-                    PosOrdem(Exemplo);
-                    printf("\n");
-                }
-                else
-                    printf("\nElemento nao encontrado!(3)\n");
-            }
-            else printf("\nArvore Vazia\n");
-            EsvaziaArvore(Exemplo);
+            //Impressão da árvore
+            printf("Em ordem: ");
+            Ordem(Exemplo);
+            printf("\n");
+            printf("Pre-Ordem: ");
+            PreOrdem(Exemplo);
+            printf("\n");
+            printf("Pos-Ordem: ");
+            PosOrdem(Exemplo);
+            printf("\n");
+            
+            //liberar a árvore
+            EsvaziaArvore(Exemplo);            
             break;
         default:
             break;

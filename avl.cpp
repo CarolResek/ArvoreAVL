@@ -284,25 +284,21 @@ void AtualizaFB(Arvore A) {
 void BalanceiaNo(Arvore &A){
     // Verifica se é necessário fazer rotações
     int fb = A->FB;
-    if (fb > 1) {
-        // Desbalanceamento à esquerda
-        if (CalculaFB(A->Esq) >= 0) {
-            // Rotação simples à direita
-            A = RotacaoDireita(A);
-        } else {
-            // Rotação dupla à direita
-            A = RotacaoDireitaEsquerda(A);
-        }
-    } else if (fb < -1) {
-        // Desbalanceamento à direita
-        if (CalculaFB(A->Dir) <= 0) {
-            // Rotação simples à esquerda
-            A = RotacaoEsquerda(A);
-        } else {
-            // Rotação dupla à esquerda
-            A = RotacaoEsquerdaDireita(A);
-        }
-    }
+    // Rotação à Esquerda
+    if(fb < -1 && CalculaFB(A->Dir) <= 0)
+        A = RotacaoEsquerda(A);
+
+    // Rotação à Direita
+    else if(fb > 1 && CalculaFB(A->Esq) >= 0)
+        A = RotacaoDireita(A);
+
+    // Rotação Dupla à Esquerda
+    else if(fb > 1 && CalculaFB(A->Esq) < 0)
+        A = RotacaoEsquerdaDireita(A);
+
+    // Rotação Dupla à Direita
+    else if(fb < -1 && CalculaFB(A->Dir) > 0)
+        A = RotacaoDireitaEsquerda(A);
 }
 
 // Função auxiliar para calcular o máximo entre dois valores inteiros

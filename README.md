@@ -170,6 +170,239 @@ Essa estrutura ajuda a manter o código organizado e modular, facilitando a manu
 - **Percursos na Árvore AVL**: As funções `PreOrdem`, `Ordem` e `PosOrdem` permitem realizar os percursos pré-ordem, em ordem e pós-ordem, respectivamente, na árvore AVL.
 - **Balanceamento da Árvore AVL**: As funções de rotação (`RotacaoEsquerda`, `RotacaoDireita`, `RotacaoEsquerdaDireita` e `RotacaoDireitaEsquerda`) são responsáveis por manter a árvore AVL balanceada após a inserção e remoção de elementos.
 
+### Função Principal (main)
+
+Na função principal está implementado um menu que possibilita que o usuário insira e remova elementos em uma árvore AVL, imprima essa árvore em pré-ordem, ordem e pós-ordem e lhe dá acesso a um exemplo de árvore AVL. Neste exemplo são inseridos os elementos 15 - 27 - 49 - 10 - 8 - 67 - 59 - 9 - 13 - 20 - 14 (nesta ordem). Neste exemplo são executados os 4 tipos de rotação.
+
+- Insere 15
+
+  ```
+    15
+  ```
+    - **Pré-ordem:** 15 (H = 0, FB = 0)
+    - **Em ordem:**  15 (H = 0, FB = 0)
+    - **Pós-ordem:** 15 (H = 0, FB = 0)
+
+  
+- Insere 27
+
+  ```
+    15
+      \
+       27
+  ```
+    - **Pré-ordem:** 15 (H = 1, FB = -1) - 27 (H = 0, FB = 0)
+    - **Em ordem:**  15 (H = 1, FB = -1) - 27 (H = 0, FB = 0)
+    - **Pós-ordem:** 27 (H = 0, FB = 0) - 15  (H = 1, FB = -1)
+
+ 
+- Insere 49 
+
+  ```
+    15
+      \
+       27
+         \
+          49
+  ```
+  Rotação à Esquerda (15 - 27 - 49):
+  ```
+      27
+     /  \
+    15  49
+  ```
+
+    - **Pré-ordem:** 27 (H = 1, FB = 0) - 15 (H = 0, FB = 0) - 49 (H = 0, FB = 0)
+    - **Em ordem:**  15 (H = 0, FB = 0) - 27 (H = 1, FB = 0) - 49 (H = 0, FB = 0)
+    - **Pós-ordem:** 15 (H = 0, FB = 0) - 49 (H = 0, FB = 0) - 27 (H = 1, FB = 0)
+
+
+- Insere 10
+
+  ```
+       27
+      /  \
+     15  49
+     /
+    10
+  ```
+    - **Pré-ordem:** 27 (H = 2, FB = 1) - 15 (H = 1, FB = 1) - 10 (H = 0, FB = 0) - 49 (H = 0, FB = 0)
+    - **Em ordem:**  15 (H = 1, FB = 1) - 10 (H = 0, FB = 0) - 27 (H = 2, FB = 1) - 49 (H = 0, FB = 0)
+    - **Pós-ordem:** 10 (H = 0, FB = 0) - 15 (H = 1, FB = 1) - 49 (H = 0, FB = 0) - 27 (H = 2, FB = 1)
+
+
+- Insere 8
+
+  ```
+          27
+         /  \
+        15  49
+       /
+      10
+     /
+    8
+  ```
+  
+  Rotação à Direita (15 - 10 - 8):
+
+  ```
+        27
+       /  \
+      10  49
+     /  \
+    8   15
+  ```
+
+    - **Pré-ordem:** 27 (H = 2, FB = 1) - 10 (H = 1, FB = 0) - 8 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 49 (H = 0, FB = 0)
+    - **Em ordem:** 8 (H = 0, FB = 0) - 10 (H = 1, FB = 0) - 15 (H = 0, FB = 0) - 27 (H = 2, FB = 1) - 49 (H = 0, FB = 0)
+    - **Pós-ordem:** 8 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 10 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 27 (H = 2, FB = 1)
+
+
+- Insere 67
+
+  ```
+        27
+       /  \
+      10  49
+     /  \   \
+    8   15   67
+  ```
+    - **Pré-ordem:** 27 (H = 2, FB = 0) - 10 (H = 1, FB = 0) - 8 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 49 (H = 1, FB = -1) - 67 (H = 0, FB = 0)
+    - **Em ordem:** 8 (H = 0, FB = 0) - 10 (H = 1, FB = 0) - 15 (H = 0, FB = 0) - 27 (H = 2, FB = 0) - 49 (H = 1, FB = -1) - 67 (H = 0, FB = 0)
+    - **Pós-ordem:** 8 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 10 (H = 1, FB = 0) - 67 (H = 0, FB = 0) - 49 (H = 1, FB = -1) - 27 (H = 2, FB = 0)
+
+
+- Insere 59
+
+  ```
+        27
+       /  \
+      10  49
+     /  \   \
+    8   15   67
+            /
+          59
+  ```
+  Rotação Direita-Esquerda (49-67-59):
+  
+  1. Rotação Direita (67-59):
+
+  ```
+        27
+       /  \
+      10  49
+     /  \   \
+    8   15   59
+               \
+                67
+  ```
+  2. Rotação Esquerda (49-59-67):
+
+  ```
+          27
+       /      \
+      10      59
+     /  \    /  \
+    8   15  49  67
+
+  ```
+    - **Pré-ordem:** 27 (H = 2, FB = 0) - 10 (H = 1, FB = 0) - 8 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0)
+    - **Em ordem:** 8 (H = 0, FB = 0) - 10 (H = 1, FB = 0) - 15 (H = 0, FB = 0) - 27 (H = 2, FB = 0) - 49 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 67 (H = 0, FB = 0)
+    - **Pós-ordem:** 8 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 10 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 27 (H = 2, FB = 0)
+  
+
+- Insere 9
+
+  ```
+          27
+       /      \
+      10      59
+     /  \    /  \
+    8   15  49  67
+     \
+      9
+  ```
+
+    - **Pré-ordem:** 27 (H = 3, FB = 1) - 10 (H = 2, FB = 1) - 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 15 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0)
+    - **Em ordem:** 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 10 (H = 2, FB = 1) - 15 (H = 0, FB = 0) - 27 (H = 3, FB = 1) - 49 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 67 (H = 0, FB = 0)
+    - **Pós-ordem:** 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 10 (H = 2, FB = 1) - 15 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0)
+ 
+- Insere 13
+  ```
+            27
+         /     \
+       10       59
+     /    \    /  \
+    8     15  49  67
+     \   /  \                     
+      9 13  20
+  ```
+    - **Pré-ordem:** 27 (H = 3, FB = 1) - 10 (H = 2, FB = 0) - 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 15 (H = 1, FB = 0) - 13 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) - 20 (H = 0, FB = 0)
+    - **Em ordem:** 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 10 (H = 2, FB = 0) - 13 (H = 0, FB = 0) - 15 (H = 1, FB = 0) - 20 (H = 0, FB = 0) - 27 (H = 3, FB = 1) - 49 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 67 (H = 0, FB = 0)
+    - **Pós-ordem:** 9 (H = 0, FB = 0) - 8 (H = 1, FB = -1) - 13 (H = 0, FB = 0) - 20 (H = 0, FB = 0) - 15 (H = 1, FB = 0) - 10 (H = 2, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 27 (H = 3, FB = 1) 
+
+  - Insere 20   
+
+  ```
+           27     
+        /      \   
+       10        59 
+     /     \    /  \      
+    8      15  49  67
+     \    /  \                     
+      9  13  20        
+  ```
+
+     - **Pré-ordem:** 27 (H = 3, FB = 1) - 10 (H = 2, FB = 0) - 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 15 (H = 1, FB = 0) - 13 (H = 0, FB = 0) - 20 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) 
+    - **Em ordem:** 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 10 (H = 2, FB = 0) - 13 (H = 0, FB = 0) - 15 (H = 1, FB = 0) - 20 (H = 0, FB = 0) - 27 (H = 3, FB = 1) - 49 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 67 (H = 0, FB = 0)
+    - **Pós-ordem:** 9 (H = 0, FB = 0) - 8 (H = 1, FB = -1) - 13 (H = 0, FB = 0) - 20 (H = 0, FB = 0) - 15 (H = 1, FB = 0) - 10 (H = 2, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 27 (H = 3, FB = 1) 
+
+  - Insere 14 
+  
+  ```
+           27
+        /      \
+       10        59
+     /     \    /  \
+    8      15  49  67
+     \    /  \
+      9  13  20
+           \
+            14                                     
+  ``` 
+  Rotação Esquerda-Direita (27-10-15):
+
+  1. Rotação Esquerda (10-15):
+
+  ```
+
+                27 
+            /        \
+           15          59
+        /     \       /  \
+      10      20   49    67 
+     / \
+    8   13
+     \    \                                         
+      9   14                                        
+  ``` 
+  2. Rotação Direita (27-15-10):
+  
+  ```
+           15  
+        /       \ 
+      10          27
+    /     \     /    \
+    8      13  20     59
+     \      \        /  \
+      9      14     49  67
+                                      
+  ``` 
+  
+    - **Pré-ordem:** 15 (H = 3, FB = 0) - 10 (H = 2, FB = 0) - 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 13 (H = 1, FB = -1) - 14 (H = 0, FB = 0) - 27 (H = 2, FB = -1) - 20 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) 
+    - **Em ordem:** 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 10 (H = 2, FB = 0) - 13 (H = 1, FB = -1) - 14 (H = 0, FB = 0) - 15 (H = 3, FB = 0) - 20 (H = 0, FB = 0) - 27 (H = 2, FB = -1) - 49 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 67 (H = 0, FB = 0)
+    - **Pós-ordem:** 8 (H = 1, FB = -1) - 9 (H = 0, FB = 0) - 14 (H = 0, FB = 0) - 13 (H = 1, FB = -1) - 10 (H = 2, FB = 0) - 20 (H = 0, FB = 0) - 49 (H = 0, FB = 0) - 67 (H = 0, FB = 0) - 59 (H = 1, FB = 0) - 27 (H = 2, FB = -1) - 15 (H = 3, FB = 0) 
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Como Rodar o Projeto

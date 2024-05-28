@@ -132,7 +132,7 @@ bool BuscaNo(Arvore A, int dado){
 //Percurso Pré-Ordem: raiz - sub-arvore esquerda - sub-arvore direita
 void PreOrdem(Arvore A){
     if(A){
-        printf("%d (H = %d, FB= %d)  ", A->Info, A->Altura, A->FB);
+        printf("%d (H = %d, FB = %d)  ", A->Info, A->Altura, A->FB);
         PreOrdem(A->Esq);
         PreOrdem(A->Dir);
     }
@@ -142,7 +142,7 @@ void PreOrdem(Arvore A){
 void Ordem(Arvore A){
     if(A){
         Ordem(A->Esq);
-        printf("%d (H = %d, FB= %d)  ", A->Info, A->Altura, A->FB);
+        printf("%d (H = %d, FB = %d)  ", A->Info, A->Altura, A->FB);
         Ordem(A->Dir);
     }    
 } 
@@ -152,7 +152,7 @@ void PosOrdem(Arvore A){
     if(A){
         PosOrdem(A->Esq);
         PosOrdem(A->Dir);
-        printf("%d (H = %d, FB= %d)  ", A->Info, A->Altura, A->FB);
+        printf("%d (H = %d, FB = %d)  ", A->Info, A->Altura, A->FB);
     }
 }
 

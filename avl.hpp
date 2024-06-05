@@ -21,6 +21,7 @@ bool BuscaNo(Arvore A, int dado); // Busca um valor na árvore AVL
 void PreOrdem(Arvore A); // Percurso Pré-Ordem: raiz - sub-arvore esquerda - sub-arvore direita
 void Ordem(Arvore A); // Percurso Em Ordem: sub-arvore esquerda - raiz - sub-arvore direita
 void PosOrdem(Arvore A); // Percurso Pós Ordem: sub-arvore esquerda - sub-arvore direita - raiz
+void imprimeArvore(Arvore A); // Imprime os três percursos da árvore
 // Funções de Árvores AVL - Rotações(para balanceamento)
 Arvore RotacaoEsquerda(Arvore A); // Rotação à Esquerda
 Arvore RotacaoDireita(Arvore A); // Rotação à Direita

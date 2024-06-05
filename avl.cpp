@@ -156,6 +156,23 @@ void PosOrdem(Arvore A){
     }
 }
 
+// Imprime os três percursos da árvore
+void imprimeArvore(Arvore A){
+    if (!ArvoreVazia(A)){
+        printf("Pre-Ordem: ");
+        PreOrdem(A);
+        printf("\n");
+        printf("Em ordem: ");
+        Ordem(A);
+        printf("\n");
+        printf("Pos-Ordem: ");
+        PosOrdem(A);
+        printf("\n");
+    }
+    else
+        printf("\nArvore Vazia\n");    
+} 
+
 // Rotação à Esquerda
 Arvore RotacaoEsquerda(Arvore A) {
     // Armazena o filho direito da antiga raiz (o novo nó raiz após a rotação à esquerda)

@@ -94,19 +94,7 @@ int main(){
             break;
         // imprime a árvore em pós-ordem, ordem e pré-ordem
         case 3:
-            if (!ArvoreVazia(A)){
-                printf("Pre-Ordem: ");
-                PreOrdem(A);
-                printf("\n");
-                printf("Em ordem: ");
-                Ordem(A);
-                printf("\n");
-                printf("Pos-Ordem: ");
-                PosOrdem(A);
-                printf("\n");
-            }
-            else
-                printf("\nArvore Vazia\n");
+            imprimeArvore(A);
             break;
         // Exemplo
         case 4:
@@ -128,15 +116,7 @@ int main(){
             InsereAVLRec(Exemplo, 14); // Rotação Esquerda-Direita
 
             //Impressão da árvore
-            printf("Pre-Ordem: ");
-            PreOrdem(Exemplo);
-            printf("\n");
-            printf("Em ordem: ");
-            Ordem(Exemplo);
-            printf("\n");
-            printf("Pos-Ordem: ");
-            PosOrdem(Exemplo);
-            printf("\n");
+            imprimeArvore(Exemplo);
             
             //liberar a árvore
             EsvaziaArvore(Exemplo);            

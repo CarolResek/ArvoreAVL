@@ -154,7 +154,7 @@ Como mencionado anteriormente, para manter a árvore AVL balanceada, as rotaçõ
 
 A implementação da árvore AVL foi estruturada usando um TAD (Tipo Abstrato de Dados), dividida em três arquivos:
 
-- **avl.hpp**: Este arquivo contém a definição da estrutura de dados da árvore AVL, juntamente com os protótipos das funções que serão implementadas. Aqui estão declaradas todas as operações básicas da árvore, como inserção, remoção, busca, os percursos pré-ordem, em ordem e pós-ordem, as funções de balanceamento etc.
+- **avl.hpp**: Este arquivo contém a definição da estrutura de dados da árvore AVL, juntamente com os protótipos das funções que serão implementadas. Aqui estão declaradas todas as operações básicas da árvore, como inserção, remoção, busca, os percursos pré-ordem, em ordem e pós-ordem, impressão da árvore, as funções de balanceamento etc.
 
 - **avl.cpp**: Aqui é onde a implementação das funções declaradas em avl.hpp é realizada. Todas as operações definidas no TAD são desenvolvidas neste arquivo. Isso inclui a lógica para inserir e remover nós da árvore, bem como qualquer outra operação necessária para manter a propriedade de árvore AVL.
 
